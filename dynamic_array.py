@@ -156,9 +156,15 @@ class DynamicArray:
 
     def append(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Adds element to end of the array,
+        doubles the capacity if self.size == self._capacity
         """
-        pass
+        # Double cpacity if full
+        if self._size == self._capacity:
+            self.resize(self._capacity * 2)
+        # Adds to end of array
+        self._data[self._size] = value
+        self._size += 1
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
