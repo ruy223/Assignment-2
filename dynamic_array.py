@@ -138,7 +138,21 @@ class DynamicArray:
         Changes the underlying storage capacity for the elements in the dynamic array,
         does not change values or order of any elements in the array
         """
+        # The limitations set by the instructions
+        if new_capacity <= 0:
+            return
+        if new_capacity < self._size:
+            return
 
+        # Create new StaticArray
+        new_array = StaticArray(new_capacity)
+        # Copy into new array
+        for i in range(0, self._size):
+            new_array[i] = self._data[i]
+
+        # Update self._data and self.capacity
+        self._data = new_array
+        self._capacity = new_capacity
 
     def append(self, value: object) -> None:
         """
