@@ -179,17 +179,32 @@ class DynamicArray:
         if self._size == self._capacity:
             self.resize(self._capacity * 2)
         # Move all elements to make space for insertion
-        for i in range(self._size, index, -1):
-            self._data[i] = self._data[i-1]
+        for i in range(self._size, index, - 1):
+            self._data[i] = self._data[i - 1]
 
         self._data[index] = value
         self._size = self._size + 1
 
     def remove_at_index(self, index: int) -> None:
         """
-        TODO: Write this implementation
+        Removes the value at index, shifting all elements at and
+        after that index to the left.
         """
-        pass
+        # Check if given inde is valid
+        if index < 0 or index >= self._size:
+            raise DynamicArrayException
+        # Reduces capacity if current elements stored are less 1/4 of total capacity
+        if self._capacity > 10 and self._size < self._capacity // 4:
+            if self._size * 2 < 10:
+                new_capacity = 10
+            else:
+                new_capacity = self._size * 2
+            self.resize(new_capacity)
+
+        # Move all elements to fill space left by removal
+        for i in range(index, self._size - 1, + 1):
+            self._data[i] = self._data[i + 1]
+        self._size = self._size - 1
 
     def slice(self, start_index: int, size: int) -> "DynamicArray":
         """
