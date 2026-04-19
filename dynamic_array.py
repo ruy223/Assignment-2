@@ -187,7 +187,8 @@ class DynamicArray:
 
     def remove_at_index(self, index: int) -> None:
         """
-        TODO: Write this implementation
+        Removes the value at index, shifting all elements at and
+        after that index to the left.
         """
         pass
 
