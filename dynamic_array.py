@@ -1,9 +1,11 @@
 # Name: Zachary Quinn Fields
 # OSU Email: fieldsz@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment: 2 -
-# Due Date: 04/27/2026
-# Description:
+# Assignment: 2 - Implementation of Dynamic Array
+# Due Date:  04/27/2026
+# Description: Complete an implementation of a Dynamic Array using a StaticArray object
+# which include the methods of resize, append, insert_at_index, remove_at_index, slice,
+# merge, filter, and reduce
 
 
 from static_array import StaticArray
