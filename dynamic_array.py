@@ -135,9 +135,10 @@ class DynamicArray:
 
     def resize(self, new_capacity: int) -> None:
         """
-        TODO: Write this implementation
+        Changes the underlying storage capacity for the elements in the dynamic array,
+        does not change values or order of any elements in the array
         """
-        pass
+
 
     def append(self, value: object) -> None:
         """
