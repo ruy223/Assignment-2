@@ -194,7 +194,7 @@ class DynamicArray:
         if index < 0 or index >= self._size:
             raise DynamicArrayException
         # Reduces capacity if current elements stored are less 1/4 of total capacity
-        if self._capacity > 10 and self._size < self._capacity // 4:
+        if self._capacity > 10 and self._size < self._capacity / 4:
             if self._size * 2 < 10:
                 new_capacity = 10
             else:
