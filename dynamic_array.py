@@ -201,7 +201,7 @@ class DynamicArray:
                 new_capacity = self._size * 2
             self.resize(new_capacity)
 
-        # Move all elements to fill space left by removal
+        # Move all elements to fill space left by removall
         for i in range(index, self._size - 1, + 1):
             self._data[i] = self._data[i + 1]
         self._size = self._size - 1
