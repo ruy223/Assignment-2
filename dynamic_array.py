@@ -159,7 +159,7 @@ class DynamicArray:
         Adds element to end of the array,
         doubles the capacity if self.size == self._capacity
         """
-        # Double cpacity if full
+        # Double capacity if full
         if self._size == self._capacity:
             self.resize(self._capacity * 2)
         # Adds to end of array
@@ -168,9 +168,22 @@ class DynamicArray:
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
-        TODO: Write this implementation
+        Inserts a new value at index, shifting all elements at and
+        beyond that index to the right. Raises DynamicArrayException for an invalid index.
+        Doubles capacity if the capacity is full.
         """
-        pass
+        # Make sure provided index is valid, not >= size/capacity
+        if index < 0 or index > self._size:
+            raise DynamicArrayException
+        # Check array capacity, double if full
+        if self._size == self._capacity:
+            self.resize(self._capacity * 2)
+        # Move all elements to make space for insertion
+        for i in range(self._size, index, -1):
+            self._data[i] = self._data[i-1]
+
+        self._data[index] = value
+        self._size = self._size + 1
 
     def remove_at_index(self, index: int) -> None:
         """
