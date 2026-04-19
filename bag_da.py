@@ -1,8 +1,8 @@
-# Name:
-# OSU Email:
+# Name: Zachary Quinn Fields
+# OSU Email: fieldsz@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Assignment: 2 -
+# Due Date: 04/27/2026
 # Description:
 
 
