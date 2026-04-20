@@ -234,15 +234,25 @@ class DynamicArray:
 
     def map(self, map_func) -> "DynamicArray":
         """
-        TODO: Write this implementation
+        Returns a new DynamicArray where each element has map_func applied
+        to the corresponding element in the original array.
+        No change to original array.
         """
-        pass
+        new_array = DynamicArray()
+        for i in range(0, self._size):
+            new_array.append(map_func(self._data[i]))
+        return new_array
 
     def filter(self, filter_func) -> "DynamicArray":
         """
-        TODO: Write this implementation
+        Returns a new DynamicArray containing only the elements for which
+        filter_func returns True. The original array is not modified.
         """
-        pass
+        new_array = DynamicArray()
+        for i in range(0, self._size):
+            if filter_func(self._data[i]):
+                new_array.append(self._data[i])
+        return new_array
 
     def reduce(self, reduce_func, initializer=None) -> object:
         """
