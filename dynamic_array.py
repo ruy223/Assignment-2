@@ -212,22 +212,25 @@ class DynamicArray:
         Raises DynamicArrayException if start_index is out of bounds, negative,
         or there are not enough elements from start_index to fill size
         """
+        # Check if the given start_index is valid
         if start_index < 0 or start_index >= self._size:
             raise DynamicArrayException
         if size < 0 or start_index + size > self._size:
             raise DynamicArrayException
-
+        # Set to a new array as not to change original
         new_dynamic_array = DynamicArray()
-
         for i in range(0, size):
             new_dynamic_array.append(self._data[start_index + i])
         return new_dynamic_array
 
     def merge(self, second_da: "DynamicArray") -> None:
         """
-        TODO: Write this implementation
+        Takes all elements of another array and appends them
+        to the current array in the same order in which
+        they are stored.
         """
-        pass
+        for i in range(0, second_da.length()):
+            self.append(second_da[i])
 
     def map(self, map_func) -> "DynamicArray":
         """
