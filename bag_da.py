@@ -44,15 +44,20 @@ class Bag:
 
     def add(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Adds a new element to the bag
         """
-        pass
+        self._da.append(value)
 
     def remove(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Removes a element from the bag that matches the provided value
         """
-        pass
+        for i in range(0, self._da.length()):
+            if self._da.get_at_index(i) == value:
+                self._da.remove_at_index(i)
+                return True
+        return False
+
 
     def count(self, value: object) -> int:
         """
