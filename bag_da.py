@@ -61,15 +61,19 @@ class Bag:
 
     def count(self, value: object) -> int:
         """
-        TODO: Write this implementation
+        Returns the number of times the element is present in the bag
         """
-        pass
+        count = 0
+        for i in range(0, self._da.length()):
+            if self._da.get_at_index(i) == value:
+                count += 1
+        return count
 
     def clear(self) -> None:
         """
-        TODO: Write this implementation
+        Clears all the elements in the bag
         """
-        pass
+        self._da = DynamicArray()
 
     def equal(self, second_bag: "Bag") -> bool:
         """
