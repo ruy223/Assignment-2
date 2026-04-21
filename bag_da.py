@@ -73,6 +73,7 @@ class Bag:
         """
         Clears all the elements in the bag
         """
+        # no loop = O(1)
         self._da = DynamicArray()
 
     def equal(self, second_bag: "Bag") -> bool:
