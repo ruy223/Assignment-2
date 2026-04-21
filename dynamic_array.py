@@ -256,9 +256,23 @@ class DynamicArray:
 
     def reduce(self, reduce_func, initializer=None) -> object:
         """
-        TODO: Write this implementation
+        Applies reduce_func to each element in the array.
+        If no initializer is given, the first element is used as the starting value.
+        Returns None if the array is empty and no initializer is provided.
         """
-        pass
+        # If empty return the value of the initializer
+        if self._size == 0:
+            return initializer
+        # Set starting value and loop range based on whether initializer was provided
+        if initializer is None:
+            new_initializer = self._data[0]
+            for i in range(1, self._size):
+                new_initializer = reduce_func(new_initializer, self._data[i])
+        else:
+            new_initializer = initializer
+            for i in range(0, self._size):
+                new_initializer = reduce_func(new_initializer, self._data[i])
+        return new_initializer
 
 def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
     """
