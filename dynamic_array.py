@@ -276,9 +276,35 @@ class DynamicArray:
 
 def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
     """
-    TODO: Write this implementation
+    Receives a DynamicArray and returns a tuple with the mode and its matching values.
+    If there is more than one value at the highest frequency all of those values
+    will be included.
     """
-    pass
+    # Set mode and frequency to first element
+    mode = DynamicArray()
+    max_frequency = 0
+    current_frequency = 1
+
+    # Update mode and frequency
+    for i in range(1, arr.length()):
+        if arr[i] == arr[i-1]:
+            current_frequency += 1
+        else:
+            if current_frequency > max_frequency:
+                max_frequency = current_frequency
+                mode = DynamicArray()
+                mode.append(arr[i - 1])
+            elif current_frequency == max_frequency:
+                mode.append(arr[i - 1])
+            current_frequency = 1
+    # Check for leftover values and compares them to max_frequency
+    if current_frequency > max_frequency:
+        max_frequency = current_frequency
+        mode = DynamicArray()
+        mode.append(arr[arr.length() - 1])
+    elif current_frequency == max_frequency:
+        mode.append(arr[arr.length() - 1])
+    return mode, max_frequency
 
 
 # ------------------- BASIC TESTING -----------------------------------------
