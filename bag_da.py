@@ -82,7 +82,14 @@ class Bag:
         Returns True if both bags are equal, False otherwise.
         Empty bags are only considered equal to other empty bags.
         """
-        pass
+        # Verify bags have same num of elements
+        if self.size() != second_bag.size():
+            return False
+        # Compare elements in both bags, if equal return True, otherwise False
+        for i in range(0, self._da.length()):
+            if self.count(self._da.get_at_index(i)) != second_bag.count(self._da.get_at_index(i)):
+                return False
+        return True
 
     def __iter__(self):
         """
