@@ -93,15 +93,22 @@ class Bag:
 
     def __iter__(self):
         """
-        TODO: Write this implementation
+        Create iterator for loop
         """
-        pass
+        self.index = 0
+        return self
 
     def __next__(self):
         """
-        TODO: Write this implementation
+        Obtain next value in the bag and advance iterator
         """
-        pass
+        if self.index >= self.size():
+            raise StopIteration
+
+        value = self._da[self.index]
+        self.index += 1
+
+        return value
 
 
 # ------------------- BASIC TESTING -----------------------------------------
