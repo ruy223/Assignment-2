@@ -78,7 +78,9 @@ class Bag:
 
     def equal(self, second_bag: "Bag") -> bool:
         """
-        TODO: Write this implementation
+        Compares the contents of two bags, second_bag is given.
+        Returns True if both bags are equal, False otherwise.
+        Empty bags are only considered equal to other empty bags.
         """
         pass
 
